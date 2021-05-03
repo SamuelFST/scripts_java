@@ -18,7 +18,7 @@ public class exercicio4 {
 		valorHora = read.nextDouble();
 		System.out.printf("%nNumero do funcionario: %d%n", numFuncionario);
 		System.out.printf("Salario: %.2f", (horasTrab*valorHora));
-		
+		read.close();
 		
 	}
 
