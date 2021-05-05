@@ -32,5 +32,4 @@ public class exercicio8 {
 		}
 		read.close();
 	}
-
 }
