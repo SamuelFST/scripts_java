@@ -13,7 +13,6 @@ public class exercicio7 {
 		System.out.println("Digite a coordenada do ponto y: ");
 		y = read.nextDouble();
 		
-		
 		if(x < 0 && y > 0) {
 			System.out.println("O ponto esta no quadrante 2");
 		}
@@ -29,8 +28,6 @@ public class exercicio7 {
 		else {
 			System.out.println("O ponto esta na origem.");
 		}
-		
 		read.close();
 	}
-
 }
