@@ -23,6 +23,7 @@ public class exercicio7 {
 				System.out.printf("\nResultado: %.1f%n", valor1/valor2);
 			}
 		}
+		read.close();
 	}
 
 }
