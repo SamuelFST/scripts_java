@@ -24,5 +24,4 @@ public class exercicio5 {
 		System.out.printf("\n%d out", out);
 		read.close();
 	}
-
 }
