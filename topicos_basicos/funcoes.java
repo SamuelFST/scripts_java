@@ -16,18 +16,16 @@ public class funcoes {
 	}
 	
 	public static int comparacao(int x, int y, int z) {
-		int vAux;
 		if(x > y && x > z) {
-			vAux = x;
+			return x;
 		}
 		else if(y > x && y >  z) {
-			vAux = y;
+			return y;
 		}
 		else {
-			vAux = z;
+			return z;
 		}
 		
-		return vAux;
 	}
 	
 	public static void saida (int maior) {
