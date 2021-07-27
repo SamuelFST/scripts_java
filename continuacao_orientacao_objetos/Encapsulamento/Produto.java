@@ -41,12 +41,12 @@ package Encapsulamento;
 		
 		public String toString() {
 			return "Nome: "
-					+nome
-					+", valor unitario: "
-					+preco
-					+", quantidade em estoque: "
-					+quantidade
-					+", valor total no estoque: "
-					+valorTotalEmEstoque();
+				+nome
+				+", valor unitario: "
+				+preco
+				+", quantidade em estoque: "
+				+quantidade
+				+", valor total no estoque: "
+				+valorTotalEmEstoque();
 		}
 	}
