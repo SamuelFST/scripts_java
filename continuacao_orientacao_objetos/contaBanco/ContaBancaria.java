@@ -1,41 +1,51 @@
 package contaBanco;
 
-import java.util.Scanner;
-
 public class ContaBancaria {
-	Scanner read = new Scanner(System.in);
+	
 	private int numero;
-	private String correntista;
+	private String titular;
 	private double balanco;
 	
-	public void depositar(double quantidade) {
-			
+	public ContaBancaria(int numero, String titular) {
+		this.numero = numero;
+		this.titular = titular;
+	}
+
+	public ContaBancaria(int numero, String titular, double depositoInicial) {
+		this.numero = numero;
+		this.titular = titular;
+		deposito(depositoInicial);
+	}
+
+	public void deposito(double quantidade) {
+		balanco = balanco + quantidade;	
 	}
 	
 	public void saque(double quantidade) {
-		
+		balanco = balanco - (quantidade + 5.0);
 	}
-	
+	 
 	public int getNumero() {
 		return numero;
 	}
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
 	
-	public String getCorrentista() {
-		return correntista;
+	public String getTitular() {
+		return titular;
 	}
-	public void setCorrentista(String correntista) {
-		this.correntista = correntista;
+	public void setCorrentista(String titular) {
+		this.titular = titular;
 	}
 	
 	public double getBalanco() {
 		return balanco;
 	}
-	public void setBalanco(double balanco) {
-		this.balanco = balanco;
+	
+	public String toString() {
+		return "Conta "
+			+numero
+			+", titular: "
+			+titular
+			+", balanco: $ "
+			+String.format("%.2f", balanco);
 	}
-	
-	
 }
