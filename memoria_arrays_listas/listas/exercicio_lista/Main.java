@@ -13,21 +13,38 @@ public class Main {
 		
 		System.out.print("Quantos funcionarios serao registrados? ");
 		int numeroFucionarios = read.nextInt();
-		List<String> lista = new ArrayList<>();
-		Funcionario funcionario;
+		List<Funcionario> lista = new ArrayList<>();
 		
 		for(int i=0; i<numeroFucionarios; i++) {
-			System.out.println("Funcionario #"+i+1);
+			System.out.println("\nFuncionario #"+(i+1));
 			System.out.print("ID: ");
-			int id = read.nextInt();
+			Integer id = read.nextInt();
 			read.nextLine();
 			System.out.print("Nome: ");
 			String nome = read.nextLine();
 			System.out.print("Salario: ");
 			double salario = read.nextDouble();
 			
-			lista.add(id, nome);
-			funcionario = new Funcionario(id, nome, salario);
+			Funcionario funcionario = new Funcionario(id, nome, salario);
+			lista.add(funcionario);
+		}
+		
+		System.out.print("\nDigite o ID do funcionario que tera o aumento salarial: ");
+		int procuraID = read.nextInt();
+		
+		Funcionario func = lista.stream().filter(x -> x.getId() == procuraID).findFirst().orElse(null);
+		
+		if(func == null) {
+			System.out.println("Esse ID não existe!");
+		}else {
+			System.out.print("Digite a porcentagem de aumento: ");
+			double porcentagem = read.nextDouble();
+			func.aumentoSalarial(porcentagem);
+		}
+		
+		System.out.println("\nLista de funcionarios: ");
+		for(Funcionario funcionario : lista) {
+			System.out.println(funcionario);
 		}
 		
 		read.close();
