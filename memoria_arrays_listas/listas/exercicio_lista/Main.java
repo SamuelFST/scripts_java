@@ -19,6 +19,10 @@ public class Main {
 			System.out.println("\nFuncionario #"+(i+1));
 			System.out.print("ID: ");
 			Integer id = read.nextInt();
+			while(hasID(lista, id)) {
+			 	System.out.println("Esse ID ja foi utilizado! Tente novamente com outro ID: ");
+				id = read.nextInt();
+			}
 			read.nextLine();
 			System.out.print("Nome: ");
 			String nome = read.nextLine();
@@ -49,5 +53,9 @@ public class Main {
 		
 		read.close();
 	}
-
+	
+	public static boolean hasID(List<Funcionario> lista, int id) {
+		Funcionario func = lista.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
+		return func != null;
+	}
 }
