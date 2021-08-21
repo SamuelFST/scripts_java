@@ -12,9 +12,11 @@ public class Main {
 		
 		// Buscando valor pela variavel ENVIADO do enum
 		StatusPedido sp1 = StatusPedido.ENVIADO;
-		
 		// Buscando pela palavra ENVIADO no enum
 		StatusPedido sp2 =  StatusPedido.valueOf("ENVIADO");
+		
+		System.out.println(sp1);
+		System.out.println(sp2);
 	}
 
 }
