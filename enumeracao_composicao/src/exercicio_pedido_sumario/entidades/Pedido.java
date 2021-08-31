@@ -10,16 +10,19 @@ import enumeracao.enums.StatusPedido;
 public class Pedido {
 	private Date momento;
 	private StatusPedido status;
-	private static SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 	
-	List<PedidoItem> pedidos = new ArrayList<>();
+	private Cliente cliente;
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	
+	List<PedidoItem> itens = new ArrayList<>();
 	
 	public Pedido() {
 	}
 
-	public Pedido(Date momento, StatusPedido status) {
+	public Pedido(Date momento, StatusPedido status, Cliente cliente) {
 		this.momento = momento;
 		this.status = status;
+		this.cliente = cliente;
 	}
 
 	public Date getMomento() {
@@ -38,17 +41,29 @@ public class Pedido {
 		this.status = status;
 	}
 	
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
+	public List<PedidoItem> getItens() {
+		return itens;
+	}
+
 	public void adicionarItem(PedidoItem item) {
-		pedidos.add(item);
+		itens.add(item);
 	}
 	
 	public void removerItem(PedidoItem item) {
-		pedidos.remove(item);
+		itens.remove(item);
 	}
 	
 	public Double total() {
 		Double soma=0.0;
-		for(PedidoItem PI : pedidos) {
+		for(PedidoItem PI : itens) {
 			soma = soma + PI.subTotal();
 		}
 		return soma;
@@ -56,8 +71,14 @@ public class Pedido {
 	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Momento do pedido: "+sdf2.format(getMomento()));
-		sb.append("\nStatus do pedido: "+getStatus());
+		sb.append("Momento do pedido: "+sdf.format(momento));
+		sb.append("\nStatus do pedido: "+status);
+		sb.append("\nCliente: "+cliente);
+		sb.append("\n\nItens no pedido: \n");
+		for(PedidoItem item : itens) {
+			sb.append(item +"\n");
+		}
+		sb.append("Preco total: $"+String.format("%.2f", total()));
 		return sb.toString();
 	}
 	
