@@ -43,6 +43,6 @@ public class Cliente {
 	}
 	
 	public String toString() {
-		return "Cliente: "+getNome() +" ("+sdf.format(getDataNascimento()) +") - "+getEmail();
+		return  nome +" ("+sdf.format(dataNascimento) +") - "+email;
 	}
 }
