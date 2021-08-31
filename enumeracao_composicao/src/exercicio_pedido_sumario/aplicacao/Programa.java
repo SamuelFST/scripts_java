@@ -26,8 +26,9 @@ public class Programa {
 		String nome = sc.nextLine();
 		System.out.print("Email: ");
 		String email = sc.nextLine();
-		System.out.print("Data de nascimento: ");
+		System.out.print("Data de nascimento (DD/MM/AAAA): ");
 		Date dataNascimento = sdf.parse(sc.next());
+		
 		Cliente cliente = new Cliente(nome, email, dataNascimento);
 		
 		Date momento = new Date();
@@ -37,7 +38,7 @@ public class Programa {
 		System.out.print("Status: ");
 		StatusPedido sp = StatusPedido.valueOf(sc.next());
 		
-		Pedido pedido = new Pedido(momento, sp);
+		Pedido pedido = new Pedido(momento, sp, cliente);
 		
 		System.out.print("Quantos itens tera esse pedido? ");
 		int quantidade = sc.nextInt();
@@ -51,16 +52,13 @@ public class Programa {
 			System.out.println("Quantidade: ");
 			Integer quantidadeProduto = sc.nextInt();
 			
-			pedidoItem = new PedidoItem(quantidadeProduto, precoProduto);
-			pedido.adicionarItem(pedidoItem);
 			Produto produto = new Produto(nomeProduto, precoProduto);
+			pedidoItem = new PedidoItem(quantidadeProduto, precoProduto, produto);
+			pedido.adicionarItem(pedidoItem);
 		}
 		
 		System.out.println("Sumario do pedido: ");
 		System.out.println(pedido);
-		System.out.println(cliente);
-		System.out.println(pedidoItem);
-		// Falta implementar o nome do produto e o preço total na saída
 		sc.close();
 	}
 
