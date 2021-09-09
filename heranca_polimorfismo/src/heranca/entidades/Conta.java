@@ -3,7 +3,7 @@ package heranca.entidades;
 public class Conta {
 	private Integer numero;
 	private String titular;
-	protected Double saldo=0.0;
+	protected Double saldo;
 	
 	public Conta() {
 	}
